@@ -3,6 +3,7 @@ import { data } from '../data/users';
 import { User } from './User/User';
 import { UsersList } from './UsersList/UsersList';
 import { Section } from './Section/Section';
+import { GlobalStyles } from '../utils/GlobalStyles';
 
 export const App = () => {
   return (
@@ -13,9 +14,9 @@ export const App = () => {
       <Section title='List of users'>
         <UsersList users={data} />
       </Section>
+      <GlobalStyles/>
     </>
   );
 };
 
 // import PropTypes from 'prop-types';
-// import styled from 'styled-components';

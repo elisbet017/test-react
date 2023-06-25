@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Address } from 'components/Address/Address';
+import { Paragraph, Span } from './User.styled';
 
 export const User = ({
   user: {
@@ -8,10 +9,15 @@ export const User = ({
     address: { street, city },
   },
 }) => {
+  const isEnds = email.endsWith('biz');
   return (
     <>
-      <p>Name: {name}</p>
-      <p>Email: {email}</p>
+      <Paragraph>
+        Name: <Span>{name}</Span>
+      </Paragraph>
+      <Paragraph>
+        Email: <Span isOrange={isEnds}>{email}</Span>
+      </Paragraph>
       <Address street={street} city={city} />
     </>
   );
