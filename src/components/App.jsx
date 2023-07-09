@@ -18,5 +18,3 @@ export const App = () => {
     </>
   );
 };
-
-// import PropTypes from 'prop-types';
