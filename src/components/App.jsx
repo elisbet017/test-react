@@ -1,20 +1,26 @@
 import React from 'react';
-import { data } from '../data/users';
-import { User } from './User/User';
-import { UsersList } from './UsersList/UsersList';
-import { Section } from './Section/Section';
-import { GlobalStyles } from '../utils/GlobalStyles';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import HomePage from '../pages/HomePage';
+import EventsPage from '../pages/EventsPage';
+import EventSubPage from './EventSubPage/EventSubPage';
+import EventSearchPage from '../pages/EventSearchPage';
 
 export const App = () => {
   return (
-    <>
-      <Section>
-        <User user={data[0]} />
-      </Section>
-      <Section title='List of users'>
-        <UsersList users={data} />
-      </Section>
-      <GlobalStyles/>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="events" element={<EventsPage />}>
+          <Route path=':id' element={<EventSubPage/>} />
+        </Route>
+        <Route path='search' element={<EventSearchPage/>}></Route>
+      </Route>
+    </Routes>
   );
 };
+
+// import axios from 'axios';
+// import PropTypes from 'prop-types';
+// import { Route, Routes } from 'react-router-dom';
+// import { lazy } from 'react';
